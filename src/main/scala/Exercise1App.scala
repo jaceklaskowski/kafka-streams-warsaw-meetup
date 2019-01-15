@@ -18,6 +18,7 @@ object Exercise1App extends App {
     .withLabel("DEBUG")
   builder
     .stream[String, String](topic = "exercise1-input")
+    .peek((k,v) => println(s"(peek) $k -> $v"))
     .print(console)
 
   val topology = builder.build()
