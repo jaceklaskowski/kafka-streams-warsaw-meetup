@@ -16,7 +16,7 @@ object KStreamApp extends App {
     .toSysOut[String, String]
     .withLabel("DEBUG")
 
-  val topic = "exercise1-input"
+  val topic = "exercise1-input" // FIXME Use scopt for cmd args
   import org.apache.kafka.streams.Topology
   val consumed = consumedFromSerde[String, String]
     .withOffsetResetPolicy(Topology.AutoOffsetReset.LATEST)
@@ -41,7 +41,7 @@ object KStreamApp extends App {
   val appId = this.getClass.getName.replace("$", "")
   import org.apache.kafka.streams.StreamsConfig
   props.put(StreamsConfig.APPLICATION_ID_CONFIG, appId)
-  props.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, ":9092") // FIXME Use scopt for cmd args
+  props.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, "broker0:9092") // FIXME Use scopt for cmd args
   import org.apache.kafka.streams.KafkaStreams
   val ks = new KafkaStreams(topology, props)
   ks.start()
