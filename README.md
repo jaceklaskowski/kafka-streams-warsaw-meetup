@@ -1,5 +1,6 @@
 # kafka-streams-warsaw-meetup
-Exercises from Kafka Streams meetups at Scala Warsaw meetup
+
+Exercises from Kafka Streams meetups at the [Warsaw Scala Enthusiasts](https://www.meetup.com/WarsawScala/) meetup
 
 ```
 ./bin/zookeeper-server-start.sh config/zookeeper.properties
